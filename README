@@ -1,0 +1,39 @@
+MUSAT-BURCEA Adrian - 312CB
+
+TEMA 2 SD
+
+Punctaj checker local 91/135
+
+Am implementat serialele cu ajutorul unui structuri ce retine nume, id
+(care are rol de poz in cazul listei top10), nr episoade, durata totala
+(calculata la adaugarea serialui si actualizata la adaugarea de sezoane),
+durata vizionata si coada de sezoane. Aceasta coada are ca elemente adrese la
+structuri de tip sezon. Acestea retin nr de episoade, durata totala a acestora
+si coada de episoade care are ca elemente durata unui episod.
+
+Pt operatia ADD citesc informatiile date si creez pe rand structura acestuia:
+durata episoade, coade de episoade, sezon, coada de sezoane si in final restul
+informatiilor legate de serial. Dupa aceea serialul este adaugat in lista
+corespunzatoare categoriei (1, 2 sau 3).
+
+Pt operatia ADD_TOP procedez similar ca la add doar ca in campul id al unui
+serial retin pozitia acestuia in top. La inserarea in lista, actualizez apoi
+pozitia elementelor aflate mai jos in top. Daca nr de seriale depaseste 10, 
+atunci elimin ultimul serial din top.
+
+Pt operatia ADD_SEZ, caut mai intai serialul in cele 3 categorii, in top10,
+in watch_later si in currently_watching. In momentul in care serialul este
+gasit, adaug la el sezonul folosind functii de prelucrare a elementelor.
+
+Pt operatia LATER, caut serial in cele 3 categorii si in top10. Daca il
+gasesc, il elimin (cu actual. poz pt top10) din lista si il adaug in coada
+watch_later. 
+
+Pt operatia WATCH, caut serialul in toate categoriile (in afara de history)
+si daca este gasit il extrag de acolo. Adun durata de vizionare precizata
+si o compar cu durata totala a serialului. Daca nu o depaseste serialul este
+adaugat in currently_watching, iar daca o depaseste este adaugat la history.
+
+Pt operatia SHOW, folosesc functiile de afisare specifice fiecare structuri.
+
+Mai multe detalii in comentarii.
